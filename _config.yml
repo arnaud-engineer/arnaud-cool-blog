@@ -1,0 +1,11 @@
+- name: Home
+  link: index.html
+  pageUrl: /index.html
+- name: About
+  link: about.html
+  pageUrl: /about.html
+- name: Blog
+  link: blog.html
+  pageUrl: /blog.html
+
+- url : https://arnaud-engineer.github.io/arnaud-cool-blog/
