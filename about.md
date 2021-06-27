@@ -1,5 +1,7 @@
 ---
 layout: default
-title: TEST
+title: About
 ---
-<h1>{{ "Hello World!" | downcase }}</h1>
+# About page
+
+This page tells you a little bit about me.
