@@ -4,3 +4,6 @@
 - name: About
   link: about.html
   pageUrl: /about.html
+- name: Blog
+  link: blog.html
+  pageUrl: /blog.html
