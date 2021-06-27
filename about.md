@@ -4,6 +4,6 @@ title: About
 ---
 # About page
 
-<p>{{site.url}} : {{ page.url }}</p>
+{{site.url}} : {{site.baseurl}} : {{ page.url }}
 
 This page tells you a little bit about me.
