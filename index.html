@@ -92,12 +92,12 @@ title: test
 
 	  <!-- Before Before Last Page -->
 	  {% if paginator.total_pages >= 6 %}
-	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 2 }}" {% if paginator.page == paginator.total_pages | minus: 2 %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
+	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 2 }}" {% if paginator.total_pages | minus: 2 == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
 	  {% endif %}
 
 	  <!-- Before Last Page -->
 	  {% if paginator.total_pages >= 5 %}
-	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 1 }}" {% if paginator.page == paginator.total_pages | minus: 1 %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 1 }}</a>
+	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 1 }}" {% if paginator.total_pages | minus: 1 == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 1 }}</a>
 	  {% endif %}
 
 	  <!-- Last Page -->
@@ -114,8 +114,9 @@ title: test
 	</div>
 
 	<span class="page_number ">
-    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+    P{{ paginator.page }} of {{ paginator.total_pages }}
   </span>
+
 	{% endif %}
 
 
