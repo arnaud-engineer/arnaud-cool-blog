@@ -49,22 +49,52 @@ title: test
 	  {% endif %}
 
 
-	  <!-- Current Pages -->	  
-	  {% if paginator.total_pages >= 4 % and paginator.page >= 4 and paginator.page < paginator.total_pages - 2 %}
+	  <!-- Current Pages V1 -->	  
+	  <!--
+	  {% if paginator.total_pages >= 5 % and paginator.page >= 5 %}
+	  	<a href="{{ site.url }}/page{{ paginator.page - 1 }}" style="color:red;">{{ paginator.page - 1 }}</a>
+	  {% endif %}
+
+	  {% if paginator.total_pages >= 4 % and paginator.page >= 4 %}
 	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
 	  {% endif %}
-	  {% if paginator.total_pages >= 5 % and paginator.page >= 5 and paginator.page < paginator.total_pages - 1 %}
+
+	  {% if paginator.total_pages >= 6 % and paginator.page >= 4 %}
+	  	<a href="{{ site.url }}/page{{ paginator.page + 1 }}" style="color:red;">{{ paginator.page + 1 }}</a>
+	  {% endif %}
+		-->
+
+
+
+	  <!-- Current Pages V2 -->	  
+
+	  {% if paginator.total_pages >= 7 % and paginator.page > 3 %}
+	  	<a href="{{ site.url }}/page{{ paginator.page - 1 }}" style="color:red;">{{ paginator.page - 1 }}</a>
+	  {% endif %}
+
+	  {% if paginator.total_pages >= 7 % and paginator.page > 3 and paginator.page < paginator.total_pages - 2 %}
+	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
+	  {% endif %}
+
+	  {% if paginator.total_pages >= 8 % and paginator.page < paginator.total_pages - 2 %}
 	  	<a href="{{ site.url }}/page{{ paginator.page + 1 }}" style="color:red;">{{ paginator.page + 1 }}</a>
 	  {% endif %}
 
 
+
+	  <!-- Suspensions dots -->
+	  {% if paginator.total_pages >= 4 %}
+	   ... 
+	  {% endif %}
+
+
 	  <!-- Before Before Last Page -->
-	  {% if paginator.total_pages >= 6 and paginator.page == paginator.total_pages - 2 %}
+	  {% if paginator.total_pages >= 6 %}
 	  	<a href="{{ site.url }}/page{{ paginator.total_pages - 2 }}" {% if paginator.page == paginator.total_pages - 2 %}class="currentPage" style="color:red;"{% endif %}>{{ paginator.total_pages - 2 }}</a>
 	  {% endif %}
 
 	  <!-- Before Last Page -->
-	  {% if paginator.total_pages >= 5 and paginator.page == paginator.total_pages - 1 %}
+	  {% if paginator.total_pages >= 5 %}
 	  	<a href="{{ site.url }}/page{{ paginator.total_pages - 1 }}" {% if paginator.page == paginator.total_pages - 1 %}class="currentPage" style="color:red;"{% endif %}>{{ paginator.total_pages - 1 }}</a>
 	  {% endif %}
 
