@@ -69,7 +69,7 @@ title: test
 
 	  
 	  {% if paginator.total_pages >= 7 and paginator.page >= 5 and paginator.page < before_last_page %}
-	  	<a href="{{ site.url }}/page{{ paginator.page | minus: 1 }}" style="color:orange;">{{ paginator.page | minus: 1 }}</a>
+	  	<a href="{{ site.url }}/page{{ paginator.page | minus: 1 }}">{{ paginator.page | minus: 1 }}</a>
 	  {% endif %}
 	
 
@@ -79,7 +79,7 @@ title: test
 
 	  
 	  {% if paginator.total_pages >= 7 and paginator.page > 2 and page_plus_1 < before_before_last_page %}
-	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:orange;">{{ paginator.page | plus: 1 }}</a>
+	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}">{{ paginator.page | plus: 1 }}</a>
 	  {% endif %}
 	
 
