@@ -81,7 +81,8 @@ title: test
 	  {% endif %}
 
 	  
-	  {% if paginator.total_pages >= 7 and paginator.page > 2 and paginator.page < before_before_last_page %}
+	  {% assign page_plus_1 = paginator.page | plus: 1 %}
+	  {% if paginator.total_pages >= 7 and paginator.page > 2 and page_plus_1 < before_before_last_page %}
 	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:orange;">{{ paginator.page | plus: 1 }}</a>
 	  {% endif %}
 	
