@@ -1,6 +1,7 @@
 ---
 title: Hello WORLD !
 author: robert
+date: 2013-11-29 00:00:00 +0200
 categories: technical
 tags: banana fruit
 ---

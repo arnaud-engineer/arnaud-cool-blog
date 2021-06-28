@@ -1,6 +1,7 @@
 ---
 title: Hello ThEre !
 author: arnaud
+date: 2013-11-29 00:50:00 +0200
 categories: edito
 tags: banana fruit
 ---
