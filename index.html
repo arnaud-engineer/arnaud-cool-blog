@@ -66,21 +66,23 @@ title: test
 
 
 
+		{% assign before_before_last_page = paginator.total_pages | minus: 2 %}
+		{% assign before_last_page = paginator.total_pages | minus: 1 %}
 	  <!-- Current Pages V2 -->	  
 
-	  <!--
+	  
 	  {% if paginator.total_pages >= 7 % and paginator.page > 3 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page | minus: 1 }}" style="color:red;">{{ paginator.page | minus: 1 }}</a>
+	  	<a href="{{ site.url }}/page{{ paginator.page | minus: 1 }}" style="color:orange;">{{ paginator.page | minus: 1 }}</a>
 	  {% endif %}
 
-	  {% if paginator.total_pages >= 7 % and paginator.page > 3 and paginator.page < paginator.total_pages | minus: 2 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
+	  {% if paginator.total_pages >= 7 % and paginator.page > 3 and paginator.page < before_before_last_page %}
+	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:orange;">{{ paginator.page }}</a>
 	  {% endif %}
 
-	  {% if paginator.total_pages >= 8 % and paginator.page < paginator.total_pages | minus: 2 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:red;">{{ paginator.page | plus: 1 }}</a>
+	  {% if paginator.total_pages >= 8 % and paginator.page < before_before_last_page %}
+	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:orange;">{{ paginator.page | plus: 1 }}</a>
 	  {% endif %}
-	-->
+	
 
 
 
@@ -92,13 +94,11 @@ title: test
 
 	  <!-- Before Before Last Page -->
 	  {% if paginator.total_pages >= 6 %}
-	  	{% assign before_before_last_page = paginator.total_pages | minus: 2 %}
 	  	<a href="{{ site.url }}/page{{ before_before_last_page }}" {% if before_before_last_page == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
 	  {% endif %}
 
 	  <!-- Before Last Page -->
 	  {% if paginator.total_pages >= 5 %}
-	  	{% assign before_last_page = paginator.total_pages | minus: 1 %}
 	  	<a href="{{ site.url }}/page{{ before_last_page }}" {% if before_last_page == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 1 }}</a>
 	  {% endif %}
 
