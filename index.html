@@ -53,25 +53,14 @@ title: test
 	  {% assign page_plus_1 = paginator.page | plus: 1 %}
 
 	  <!-- Suspensions dots -->
+	  <!--
 	  {% if paginator.total_pages >= 11 and page_minus_1 > 3 and page_plus_1 < assign before_before_last_page %}
 	   ... 
 	  {% endif %}
+	-->
 
 
-	  <!-- Current Pages V1 -->	  
-	  <!--
-	  {% if paginator.total_pages >= 5 % and paginator.page >= 5 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page - 1 }}" style="color:red;">{{ paginator.page - 1 }}</a>
-	  {% endif %}
 
-	  {% if paginator.total_pages >= 4 % and paginator.page >= 4 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
-	  {% endif %}
-
-	  {% if paginator.total_pages >= 6 % and paginator.page >= 4 %}
-	  	<a href="{{ site.url }}/page{{ paginator.page + 1 }}" style="color:red;">{{ paginator.page + 1 }}</a>
-	  {% endif %}
-		-->
 
 
 
@@ -94,13 +83,14 @@ title: test
 	  {% endif %}
 	
 
-
+<!-- Suspensions dots -->
+<!--
 	  {% assign page_plus_2 = page_plus_1 | plus: 1 %}
-	  <!-- Suspensions dots -->
+	  
 	  {% if paginator.total_pages >= 7 and page_plus_2 < before_before_last_page %}
 	   ... 
 	  {% endif %}
-
+-->
 
 	  <!-- Before Before Last Page -->
 	  {% if paginator.total_pages >= 6 %}
