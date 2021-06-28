@@ -35,12 +35,12 @@ title: test
 
 
 
-	  	<a href="{{ site.url }}" {% paginator.page == 1 %}class="currentPage" style="color:red;"{% endif %}>1</a>
+	  <a href="{{ site.url }}" {% if paginator.page == 1 %}class="currentPage" style="color:red;"{% endif %}>1</a>
 	  {% if paginator.total_pages >= 2 %}
-	  	<a href="{{ site.url }}/page2" {% paginator.page == 2 %}class="currentPage" style="color:red;"{% endif %}>2</a>
+	  	<a href="{{ site.url }}/page2" {% if paginator.page == 2 %}class="currentPage" style="color:red;"{% endif %}>2</a>
 	  {% endif %}
 	  {% if paginator.total_pages >= 3 %}
-	  	<a href="{{ site.url }}/page3" {% paginator.page == 3 %}class="currentPage" style="color:red;"{% endif %}>3</a>
+	  	<a href="{{ site.url }}/page3" {% if paginator.page == 3 %}class="currentPage" style="color:red;"{% endif %}>3</a>
 	  {% endif %}
 
 
