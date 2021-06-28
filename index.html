@@ -92,12 +92,14 @@ title: test
 
 	  <!-- Before Before Last Page -->
 	  {% if paginator.total_pages >= 6 %}
-	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 2 }}" {% if paginator.total_pages | minus: 2 == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
+	  	{% assign before_before_last_page = paginator.total_pages | minus: 1 %}
+	  	<a href="{{ site.url }}/page{{ before_before_last_page }}" {% if before_before_last_page == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
 	  {% endif %}
 
 	  <!-- Before Last Page -->
 	  {% if paginator.total_pages >= 5 %}
-	  	<a href="{{ site.url }}/page{{ paginator.total_pages | minus: 1 }}" {% if paginator.total_pages | minus: 1 == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 1 }}</a>
+	  	{% assign before_last_page = paginator.total_pages | minus: 1 %}
+	  	<a href="{{ site.url }}/page{{ before_last_page }}" {% if before_last_page == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 1 }}</a>
 	  {% endif %}
 
 	  <!-- Last Page -->
@@ -114,7 +116,7 @@ title: test
 	</div>
 
 	<span class="page_number ">
-    P{{ paginator.page }} of {{ paginator.total_pages }}
+    P{{ paginator.page }} of {{ paginator.total_pages }} (test : {{before_before_last_page}} / {{before_last_page}})
   </span>
 
 	{% endif %}
