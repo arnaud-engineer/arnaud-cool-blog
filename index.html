@@ -18,7 +18,7 @@ title: test
 	{% for post in paginator.posts %}
 	  <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
 	  <p class="author">
-	    <span class="date">{{ post.date }}</span>
+	    <span class="date">{{ post.date | date: "%d/%m/%Y - %H:%M" }}</span>
 	  </p>
 	  <div class="content">
 	    {{ post.content }}
