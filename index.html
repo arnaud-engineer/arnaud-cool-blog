@@ -35,9 +35,7 @@ title: test
 
 
 
-	  {% if paginator.total_pages >= 1 %}
 	  	<a href="{{ site.url }}" {% paginator.page == 1 %}class="currentPage" style="color:red;"{% endif %}>1</a>
-	  {% endif %}
 	  {% if paginator.total_pages >= 2 %}
 	  	<a href="{{ site.url }}/page2" {% paginator.page == 2 %}class="currentPage" style="color:red;"{% endif %}>2</a>
 	  {% endif %}
