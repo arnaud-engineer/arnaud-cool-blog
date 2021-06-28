@@ -44,7 +44,7 @@ title: test
 	  {% endif %}
 
 
-	  {% if paginator.total_pages >= 4 % and paginator.page < paginator.total_pages %}
+	  {% if paginator.total_pages >= 4 % and paginator.page > 3 and paginator.page < paginator.total_pages %}
 	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
 	  {% endif %}
 
