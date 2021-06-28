@@ -26,16 +26,37 @@ title: test
 	{% endfor %}
 
 	<!-- Pagination links -->
+	{% if paginator.total_pages > 1 %}
 	<div class="pagination">
+
 	  {% if paginator.previous_page %}
 	    <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous"><</a>
 	  {% endif %}
+
+
+
+	  {% if paginator.total_pages >= 1 %}
+	  	<a href="{{ site.url }}" {% paginator.page == 1 %}class="currentPage" style="color:red;"{% endif %}>1</a>
+	  {% endif %}
+	  {% if paginator.total_pages >= 2 %}
+	  	<a href="{{ site.url }}/page2" {% paginator.page == 2 %}class="currentPage" style="color:red;"{% endif %}>2</a>
+	  {% endif %}
+	  {% if paginator.total_pages >= 3 %}
+	  	<a href="{{ site.url }}/page3" {% paginator.page == 3 %}class="currentPage" style="color:red;"{% endif %}>3</a>
+	  {% endif %}
+
+
 	  <span class="page_number ">
 	    Page: {{ paginator.page }} of {{ paginator.total_pages }}
 	  </span>
+
 	  {% if paginator.next_page %}
 	    <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">></a>
 	  {% endif %}
+
 	</div>
+	{% endif %}
+
+
   </body>
 </html>
