@@ -45,10 +45,15 @@ title: test
 
 
 
+
+	  {% assign before_before_last_page = paginator.total_pages | minus: 2 %}
+	  {% assign before_last_page = paginator.total_pages | minus: 1 %}
+
 	  {% assign page_minus_1 = paginator.page | minus: 1 %}
+	  {% assign page_plus_1 = paginator.page | plus: 1 %}
 
 	  <!-- Suspensions dots -->
-	  {% if paginator.total_pages >= 11 and page_minus_1 > 3 %}
+	  {% if paginator.total_pages >= 11 and page_minus_1 > 3 and page_plus_1 < assign before_before_last_page %}
 	   ... 
 	  {% endif %}
 
@@ -70,8 +75,7 @@ title: test
 
 
 
-		{% assign before_before_last_page = paginator.total_pages | minus: 2 %}
-		{% assign before_last_page = paginator.total_pages | minus: 1 %}
+
 	  <!-- Current Pages V2 -->	  
 
 	  
@@ -85,7 +89,6 @@ title: test
 	  {% endif %}
 
 	  
-	  {% assign page_plus_1 = paginator.page | plus: 1 %}
 	  {% if paginator.total_pages >= 7 and paginator.page > 2 and page_plus_1 < before_before_last_page %}
 	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:orange;">{{ paginator.page | plus: 1 }}</a>
 	  {% endif %}
