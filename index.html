@@ -71,17 +71,20 @@ title: test
 	  <!-- Current Pages V2 -->	  
 
 	  
-	  {% if paginator.total_pages >= 7 % and paginator.page > 3 %}
+	  {% if paginator.total_pages >= 7 % and paginator.page >= 5 %}
 	  	<a href="{{ site.url }}/page{{ paginator.page | minus: 1 }}" style="color:orange;">{{ paginator.page | minus: 1 }}</a>
 	  {% endif %}
+	
 
 	  {% if paginator.total_pages >= 7 % and paginator.page > 3 and paginator.page < before_before_last_page %}
 	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:orange;">{{ paginator.page }}</a>
 	  {% endif %}
 
+	  <!--
 	  {% if paginator.total_pages >= 8 % and paginator.page < before_before_last_page %}
 	  	<a href="{{ site.url }}/page{{ paginator.page | plus: 1 }}" style="color:orange;">{{ paginator.page | plus: 1 }}</a>
 	  {% endif %}
+	-->
 	
 
 
