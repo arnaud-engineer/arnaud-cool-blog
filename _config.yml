@@ -19,3 +19,10 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+
+plugins:
+  - jekyll-feed
+title: arnaud.cool blog
+description: a blog about cool stuffs
+author: arnaud.cool
