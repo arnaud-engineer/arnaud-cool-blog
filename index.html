@@ -43,8 +43,12 @@ title: test
 	  	<a href="{{ site.url }}/page3" {% if paginator.page == 3 %}class="currentPage" style="color:red;"{% endif %}>3</a>
 	  {% endif %}
 
+
+
+	  {% assign page_minus_1 = paginator.page | minus: 1 %}
+
 	  <!-- Suspensions dots -->
-	  {% if paginator.total_pages >= 11 %}
+	  {% if paginator.total_pages >= 11 and page_minus_1 > 3 %}
 	   ... 
 	  {% endif %}
 
@@ -90,7 +94,7 @@ title: test
 
 
 	  <!-- Suspensions dots -->
-	  {% if paginator.total_pages >= 7 %}
+	  {% if paginator.total_pages >= 7 and page_plus_1 < before_before_last_page %}
 	   ... 
 	  {% endif %}
 
