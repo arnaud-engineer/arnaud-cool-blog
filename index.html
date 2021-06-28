@@ -44,9 +44,13 @@ title: test
 	  {% endif %}
 
 
-	  <span class="page_number ">
-	    Page: {{ paginator.page }} of {{ paginator.total_pages }}
-	  </span>
+	  {% if paginator.total_pages >= 4 % and paginator.page < paginator.total_pages %}
+	  	<a href="{{ site.url }}/page{{ paginator.page }}" style="color:red;">{{ paginator.page }}</a>
+	  {% endif %}
+
+	  {% if paginator.total_pages >= 4 %}
+	  	<a href="{{ site.url }}/page{{ paginator.total_pages }}" {% if paginator.page == paginator.total_pages %}class="currentPage" style="color:red;"{% endif %}>{{ paginator.total_pages }}</a>
+	  {% endif %}
 
 	  {% if paginator.next_page %}
 	    <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">></a>
