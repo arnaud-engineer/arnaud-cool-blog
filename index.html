@@ -92,7 +92,7 @@ title: test
 
 	  <!-- Before Before Last Page -->
 	  {% if paginator.total_pages >= 6 %}
-	  	{% assign before_before_last_page = paginator.total_pages | minus: 1 %}
+	  	{% assign before_before_last_page = paginator.total_pages | minus: 2 %}
 	  	<a href="{{ site.url }}/page{{ before_before_last_page }}" {% if before_before_last_page == paginator.page %}class="currentPage" style="color:green;"{% endif %}>{{ paginator.total_pages | minus: 2 }}</a>
 	  {% endif %}
 
