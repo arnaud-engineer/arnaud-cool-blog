@@ -17,15 +17,25 @@ title: test
 	<!-- This loops through the paginated posts -->
 	{% for post in paginator.posts %}
 	<article>
-		<span>
+		<div>
 		{% for cat in post.categories %}
 			{{ cat }}
 		{% endfor %}
-		</span>
+		</div>
+
+		<div class="date">
+			{{ post.date | date: "%d/%m/%Y - %H:%M" }}
+		</div>
+
 		<h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
+
 		<p class="author">
-			<span class="date">{{ post.date | date: "%d/%m/%Y - %H:%M" }}</span>
+		{% assign author = site.authors | where: 'short_name', page.author | first %}
+		{% if author %}
+			<a href="{{ site.url }}{{ author.url }}">{{ author.name }}</a>
+		{% endif %}
 		</p>
+
 		<div class="content">
 			{{ post.content }}
 		</div>
