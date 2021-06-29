@@ -1,0 +1,18 @@
+<header>
+
+	<h1>
+		<img src="{{ site.url }}{{ site.data.general.logo-src }}" alt="{{site.data.general.name}} logo"/>
+		{% if site.data.general.display-name == true %}
+		<span>{{site.data.general.name}}</span>
+		{% endif %}
+	</h1>
+
+	<nav>
+		{% for item in site.data.navigation %}
+		<a href="{{ site.url }}{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+			{{ item.name }}
+		</a>
+		{% endfor %}
+	</nav>
+
+</header>
