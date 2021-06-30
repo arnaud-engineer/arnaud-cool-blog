@@ -2,7 +2,7 @@
 	<div>
 		<h1>
 			<button><img src="rsrc/rsrc/hamburger-button.svg" onclick="menuOnOff();"/></button>
-			<img src="{{ site.url }}{{ site.data.general.logo-src }}" alt="{{site.data.general.name}} logo"/>
+			<img src="{{ site.url }}{{ site.data.general.logo-src }}" alt="{{site.data.general.name}} logo" id="site-logo"/>
 			{% if site.data.general.display-name == true %}
 			<span>{{site.data.general.name}}</span>
 			{% endif %}
