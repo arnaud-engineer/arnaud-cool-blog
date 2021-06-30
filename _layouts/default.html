@@ -10,7 +10,9 @@
 		{% include header.html %}
 		<a class="btn btn-rss" href="{{ site.url }}/feed.xml" target="_blank">RSS</a>
 		<main>
-			{{ content }}
+			<div id="content">
+				{{ content }}
+			</div>
 		</main>
 	</body>
 </html>
