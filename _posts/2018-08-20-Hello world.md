@@ -13,3 +13,24 @@ distinguishing them from dessert bananas. The fruit is variable in size, color,
 and firmness, but is usually elongated and curved, with soft flesh rich in
 starch covered with a rind, which may be green, yellow, red, purple, or brown
 when ripe.
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ page.title }}</title>
+		<link rel="stylesheet" href="{{ site.url }}/style.css" />
+		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
+	</head>
+	<body>
+		{% include header.html %}
+		<!--<a class="btn btn-rss" href="{{ site.url }}/feed.xml" target="_blank">RSS</a>-->
+		<main>
+			<div id="content">
+				{{ content }}
+			</div>
+		</main>
+	</body>
+</html>
+```
