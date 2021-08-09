@@ -1,0 +1,20 @@
+I"�<h1>Staff</h1>
+
+<ul>
+  
+    <li>
+      <h2><a href="https://arnaud-engineer.github.io/arnaud-cool-blog/authors/arnaud.html">Arnaud Dupont</a></h2>
+      <h3>Maître des lieux</h3>
+      <p><p>Arnaud est un ingénieur informatique ”touche à tout”.</p>
+</p>
+    </li>
+  
+    <li>
+      <h2><a href="https://arnaud-engineer.github.io/arnaud-cool-blog/authors/robert.html">Robert</a></h2>
+      <h3>Passant</h3>
+      <p><p>Robert est un bon gars</p>
+</p>
+    </li>
+  
+</ul>
+:ET

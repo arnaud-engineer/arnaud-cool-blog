@@ -1,0 +1,549 @@
+@font-face {
+  font-family: 'arnaud-cool';
+  src: url(rsrc/fonts/arnaud-cool.eot);
+  src: url(rsrc/fonts/arnaud-cool.eot?#iefix) format('embedded-opentype'),
+       url(rsrc/fonts/arnaud-cool.svg#arnaud-cool) format('svg'),
+       url(rsrc/fonts/arnaud-cool.ttf) format('truetype'),
+       url(rsrc/fonts/arnaud-cool.woff) format('woff'),
+       url(rsrc/fonts/arnaud-cool.woff2) format('woff2');
+}
+
+
+/*
+filter: drop-shadow(16px 16px 20px red);
+*/
+
+
+
+
+
+
+
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+@keyframes sleepy {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+
+
+#radio.playing {
+  animation: shake 1.5s;
+  animation-iteration-count: infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root
+{
+	--headerHeight: min(80px, 16vh);
+
+	/* automatic calculation */
+	--frameHeight: calc(100vh - var(--headerHeight)); /* cross product of height */
+	--frameWidth: calc((16 * (100vh - var(--headerHeight))) / 9); /* (window width - frame width) / 2 */
+	--frameMargin: max((calc(100vw - var(--frameWidth)) / 2), 0vw);
+
+	/*--defaultCursor: url("rsrc/cursors/stupid-pikachu.png"), default;*/
+	--defaultCursor: url("rsrc/cursors/cursor-default.png"), default;
+	--onMouseCursor: url("rsrc/cursors/cursor-pointer.png"), pointer;
+
+	--pointerCursor: url("rsrc/cursors/cursor-pointer.png") 24 0, pointer;
+
+	/*
+	--frameMargin: calc((100vw - var(--frameWidth)) / 2);
+	*/
+}
+
+
+
+
+
+
+
+
+
+
+/* width */
+#content-frame ::-webkit-scrollbar
+{ width: 14px; }
+
+ 
+/* Handle */
+#content-frame ::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 6px;
+  border: solid 3px #ffffed;
+}
+
+	.night #content-frame ::-webkit-scrollbar-thumb {
+	  background: black;
+	  border: solid 3px #ffffed;
+	}
+
+/* Handle on hover */
+#content-frame ::-webkit-scrollbar-thumb:hover
+{ background: #3d3d3d; }
+
+	.night #content-frame ::-webkit-scrollbar-thumb:hover
+	{ background: lightgray; }
+
+
+
+
+
+
+
+
+
+
+
+body
+{
+	background-color: #ffffed;
+
+	cursor: var(--defaultCursor);
+	/*cursor: url("rsrc/cursors/stupid-pikachu.png"), default !important;*/
+
+	font-family: "arnaud-cool", "comic sans ms", serif;
+}
+
+	main
+	{
+		top: var(--headerHeight);
+		/*background-color: orange;*/
+
+		height: var(--frameHeight);
+		width: 100vw;
+
+
+		position: relative;
+	}
+
+
+
+		main #content
+		{
+			height: var(--frameHeight);
+			width: var(--frameWidth);
+
+			margin-left: var(--frameMargin);
+			position: absolute;
+			top: 0; left: 0;
+
+
+			z-index: 1;
+		}
+
+	
+
+
+header
+{
+	height: var(--headerHeight);
+	width: 100vw;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+
+	z-index: 100;
+}
+
+	header > div
+	{
+		width: min(var(--frameWidth), 100vw);
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	header h1
+	{
+	}
+
+		header h1 a
+		{
+			display: inline-block;
+
+			text-decoration: none;
+
+			transition: all .2s ease;
+			transform-origin: left;
+
+			cursor: var(--pointerCursor);
+		}
+
+			header h1 a:hover
+			{ transform: scale(1.02); opacity: .8; }
+
+			header h1 a img
+			{
+				height: calc(var(--headerHeight) * .8);
+				/*width: 100%;*/
+				margin: calc(var(--headerHeight) * .1);
+
+				vertical-align: top;
+			}
+
+	header button
+	{
+		width: var(--headerHeight);
+		height: var(--headerHeight);
+		font-size: var(--headerHeight);
+		vertical-align: text-top;
+
+		overflow: hidden; /* bug with text content on firefox TODO : maybe removable in the future */
+
+		-webkit-appearance: none;
+    	-moz-appearance: none;
+    	border: none;
+    	background-color: transparent;
+
+    	cursor: var(--pointerCursor);
+	}
+
+		header button img
+		{
+			width: 100%;
+			height: 100%;
+			padding: 20%;
+
+			transition: all .3s ease;
+		}
+
+		header button:hover img
+		{ transform: scale(1.05); opacity: .8; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	#link-presentation
+	{ 
+		position: fixed;
+		top: 0; left: 0;
+		height: 100vh;
+		display: block;
+
+		z-index: 100;
+
+		transition: all .3s ease;
+
+		overflow: hidden;
+
+		transform: translateX(-100%);
+		transition: all .2s ease;
+	}
+
+		#link-presentation.displayed
+		{ transform: translateX(0%); }
+
+		/*#link-presentation.displayed
+		{ display: block; }*/
+
+		#link-presentation-background
+		{
+			z-index: 100;
+			/*background-color: black;*/
+			opacity: 0;
+			width: max(100vw, (16 / 9) * 100vh);
+			height: 100vh;
+		}
+
+
+		#content-frame
+		{
+			position: fixed !important;
+			/*top: max(20px, min(10vh, 10vw)); left: max(20px, min(10vh, 10vw));*/
+			top: max(10px + var(--headerHeight), min(6vh, 6vw) + var(--headerHeight)); left: max(10px + var(--frameMargin), min(6vh, 6vw) + var(--frameMargin));
+			width: min(500px, 88vw, 88vh);
+			height: min(500px, 88vw, 88vh);
+			
+			/*background-color: #ffffed;*/
+			/*background-color: red;*/
+			background: no-repeat url("rsrc/img/paper-background.svg");
+
+
+
+
+			/*box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
+
+			transition: all .3s ease;
+
+			opacity: 1;
+
+			transform: translateY(50%);
+		}
+
+			.displayed #content-frame
+			{
+				transform: translateY(0%);
+			}
+
+			#content-frame-text
+			{
+				overflow: auto;
+				margin: max(4px, min(3vh, 3vw));
+				padding: max(4px, min(3vh, 3vw));
+				width: calc(100% - 2 * max(4px, min(3vh, 3vw))); height: calc(100% - 2 * max(4px, min(3vh, 3vw)));
+			}
+
+
+			#content-logo
+			{
+				max-height: max(48px, 20vh);
+				width: 100%;
+				max-width: 50%;
+
+				padding-bottom: 20px;
+			}
+
+			#content-frame p
+			{
+				padding-bottom: 20px;
+			}
+
+			#content-frame p:last-child
+			{
+				padding-bottom: 0px;
+			}
+
+			#content-frame a
+			{
+				cursor: var(--pointerCursor);
+				text-decoration: none;
+				color: #c73c3e;
+
+				display: inline-block;
+				transition: all .2s ease;
+				transform-origin: center;
+			}
+
+				/*#menu a:visited { color: #d59091; }*/
+				#content-frame a:hover { opacity: .6; transform: scale(1.03); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	body.night
+	{
+		background-color: #1C1C1C;
+	}
+
+	body.night main #myOffice img
+	{
+		filter: brightness(.3);
+	}
+
+	body.night header
+	{
+		filter: invert(100%);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#menu
+{
+	background-color: #ffffed;
+
+	position: fixed;
+	top: var(--headerHeight);
+	left: 0;
+
+	height: var(--frameHeight);
+	width: 100vw;
+
+	padding-top: calc(2 * var(--headerHeight) / 3);
+	padding-left: calc(var(--frameMargin) + max(12px, 10vw));
+	padding-right: calc(var(--frameMargin) + max(12px, 10vw));
+
+	z-index: 99999999999;
+
+	overflow-y: auto;
+
+	transform: translateX(-100%);
+	transition: all .4s ease;
+}
+
+	#menu.displayed
+	{
+		transform: translateX(0%);
+	}	
+
+	body.night #menu { background-color: #1C1C1C; }
+		body.night #menu { color: white; }
+		body.night #menu a { color: red; }
+
+
+		#menu h1
+		{
+			font-size: 48px;
+		}
+
+		#menu p, ul
+		{
+			font-size: 26px;
+			padding-bottom: calc(var(--headerHeight) / 3);
+		}
+
+			#menu p:last-child
+			{ padding-bottom: 0; }
+
+		#menu .credits
+		{
+			padding-top: calc(2 * var(--headerHeight) / 3);
+			padding-bottom: var(--headerHeight);
+
+			font-size: 18px;
+			text-align: center;
+		}
+
+		#menu a
+		{
+			cursor: var(--pointerCursor);
+			text-decoration: none;
+			color: #c73c3e;
+
+			display: inline-block;
+			transition: all .2s ease;
+			transform-origin: center;
+		}
+
+			/*#menu a:visited { color: #d59091; }*/
+			#menu a:hover { opacity: .6; transform: scale(1.03); }
+
+
+
+
+
+
+		.row
+		{
+			padding-top: calc(var(--headerHeight) / 3);
+
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+		}
+
+
+		.column-1, .column-2, .column-3
+		{
+			padding-top: calc(var(--headerHeight) / 3);
+		}
+
+		.column-1
+		{
+			grid-column: 1 / 3;
+			grid-row: 1;
+		}
+
+		.column-2
+		{
+			grid-column: 2 / 3;
+			grid-row: 1;
+		}
+
+		.column-3
+		{
+			grid-column: 3 / 3;
+			grid-row: 1;
+		}
+
+			@media (max-width: 768px) {
+				/*.row { grid-template-columns: repeat(2, 1fr); }*/
+				.row { grid-template-columns: repeat(2, 1fr); }
+				.column-1 { grid-column: 1 / 2; grid-row: 1; }
+				.column-2 { grid-column: 2 / 2; grid-row: 1; }
+				.column-3 { grid-column: 1 / 2; grid-row: 2; }
+			}
+
+			@media (max-width: 576px) {
+				/*.row { grid-template-columns: repeat(1, 1fr); }*/
+				.row { grid-template-columns: repeat(1, 1fr); }
+				.column-1 { grid-column: 1 / 1; grid-row: 1; }
+				.column-2 { grid-column: 1 / 1; grid-row: 2; }
+				.column-3 { grid-column: 1 / 1; grid-row: 3; }
+			}
+
+
+
+
+
+
+
+
